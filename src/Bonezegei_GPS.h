@@ -6,22 +6,31 @@
 #ifndef _BONEZEGEI_GPS_H_
 #define _BONEZEGEI_GPS_H_
 #include <Arduino.h>
+#include <Bonezegei_SoftSerial.h>
 
 class Bonezegei_GPS {
 public:
 
   Bonezegei_GPS();
-  Bonezegei_GPS(const HardwareSerial& se);
+  Bonezegei_GPS(HardwareSerial& serial);
+  Bonezegei_GPS(Bonezegei_SoftSerial& serial);
 
   void begin();
   void begin(int baud);
 
-  void log(){
-    s->println("Bonezegei");
-  }
+  uint8_t getData();
 
+  double latitude;
+  double longitude;
+  float speed;
+
+  char sentence[90];
+  int sentence_index;
+  uint8_t sen_flag; //sentence flag for $ and * 
 private:
-  HardwareSerial *s;
+  Bonezegei_SoftSerial* softserial;
+  HardwareSerial *hardserial;
+  uint8_t ser;  //serial selected 0 for hardware serial and 1 for softserial
 };
 
 
