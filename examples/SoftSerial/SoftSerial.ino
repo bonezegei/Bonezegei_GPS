@@ -5,11 +5,10 @@
   Bonezegei SoftSerial GPS 
 */
 
-
-#include "Bonezegei_GPS.h"
+#include <Bonezegei_GPS.h>
 
 //RX TX
-Bonezegei_SoftSerial softSerial(25,26);
+Bonezegei_SoftSerial softSerial(25,26); 
 Bonezegei_GPS gps(softSerial);
 
 void setup() {
