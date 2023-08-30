@@ -7,8 +7,11 @@
 
 #include <Bonezegei_GPS.h>
 
-//RX TX
-Bonezegei_SoftSerial softSerial(25,26); 
+// The SoftSerial can be declare as RX only for GPS by delcaring with only 1 pin the SoftSerial is set by default with receive pin 
+// Bonezegei_SoftSerial softSerial(25);
+
+// RX TX
+Bonezegei_SoftSerial softSerial(25,26);
 Bonezegei_GPS gps(softSerial);
 
 void setup() {
