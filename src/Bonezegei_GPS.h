@@ -8,6 +8,8 @@
 #include <Arduino.h>
 #include <Bonezegei_SoftSerial.h>
 
+#define GPS_VALID 'A'
+
 class Bonezegei_GPS {
 public:
 
@@ -19,6 +21,7 @@ public:
   void begin(int baud);
 
   uint8_t getData();
+  uint8_t getGPRMC();
 
   double latitude;
   double longitude;
